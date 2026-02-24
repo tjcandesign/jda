@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JD+A Custom Builders | Website Design and Brand Foundation Proposal</title>
+  <style>
+    :root {
+      --color-primary: #1a3a3a;
+      --color-secondary: #2d5a5a;
+      --color-accent: #c4a574;
+      --color-bg: #fafaf8;
+      --color-text: #3a3a3a;
+      --color-text-light: #666;
+      --color-border: #ddd7d0;
+      --color-surface: #fff;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 0;
+      background: linear-gradient(135deg, rgba(26, 58, 58, 0.7) 0%, rgba(45, 90, 90, 0.7) 100%), url('image1.png') center/cover no-repeat;
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: transparent;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: var(--color-accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-surface);
+      letter-spacing: 0.05em;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      color: var(--color-surface);
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 7rem 1.5rem;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      position: relative;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+      padding-bottom: 8rem;
+    }
+
+    section h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.015em;
+      color: var(--color-primary);
+      line-height: 1.2;
+    }
+
+    section h3 {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-text-light);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    section h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .section-intro {
+      font-size: 1.1rem;
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-body p {
+      margin-bottom: 1.2rem;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.75rem;
+      color: var(--color-text-light);
+      transition: var(--transition);
+    }
+
+    li:hover {
+      color: var(--color-accent);
+      margin-left: 0.25rem;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* PHASE BADGE */
+    .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      background: var(--color-accent);
+      color: var(--color-surface);
+      font-size: 1.75rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(196, 165, 116, 0.15);
+    }
+
+    .phase-badge:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 25px rgba(196, 165, 116, 0.25);
+    }
+
+    .phase-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      background: rgba(196, 165, 116, 0.1);
+      border-radius: 20px;
+    }
+
+    .phase-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.015em;
+      color: var(--color-primary);
+    }
+
+    .investment-box {
+      background: linear-gradient(135deg, rgba(196, 165, 116, 0.08) 0%, rgba(196, 165, 116, 0.02) 100%);
+      border: 2px solid var(--color-accent);
+      border-top: 4px solid var(--color-accent);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      margin-top: 2.5rem;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .investment-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(196, 165, 116, 0.15);
+    }
+
+    .investment-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .investment-amount {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .strategic-objectives {
+      background: rgba(196, 165, 116, 0.06);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      transition: var(--transition);
+    }
+
+    .strategic-objectives:hover {
+      background: rgba(196, 165, 116, 0.1);
+    }
+
+    .strategic-objectives h4 {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .strategic-objectives ul {
+      margin-left: 0;
+      list-style: none;
+    }
+
+    .strategic-objectives li {
+      margin-bottom: 0.8rem;
+      color: var(--color-text-light);
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .strategic-objectives li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .strategic-objectives li:hover {
+      color: var(--color-accent);
+      margin-left: 0;
+    }
+
+    /* INVESTMENT SUMMARY */
+    #investment-section {
+      background: var(--color-surface);
+    }
+
+    .investment-list {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 0;
+      margin-bottom: 2rem;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .investment-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      background: var(--color-surface);
+    }
+
+    .investment-item:hover {
+      background: rgba(196, 165, 116, 0.03);
+    }
+
+    .investment-item:last-child {
+      border-bottom: none;
+    }
+
+    .investment-item-label {
+      color: var(--color-text-light);
+      font-weight: 500;
+    }
+
+    .investment-item-amount {
+      font-weight: 700;
+      color: var(--color-primary);
+      white-space: nowrap;
+      margin-left: 2rem;
+    }
+
+    .investment-total {
+      padding: 1.75rem 2rem;
+      border-top: 2px solid var(--color-accent);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.05rem;
+      background: rgba(196, 165, 116, 0.08);
+    }
+
+    .investment-total-label {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .investment-total-amount {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    .timeline-note {
+      background: rgba(196, 165, 116, 0.06);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      font-size: 1rem;
+      color: var(--color-text-light);
+      line-height: 1.85;
+      transition: var(--transition);
+    }
+
+    .timeline-note:hover {
+      background: rgba(196, 165, 116, 0.1);
+    }
+
+    /* TIMELINE VISUAL */
+    .timeline-container {
+      margin: 3rem 0;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+      position: relative;
+    }
+
+    .timeline-grid::before {
+      content: "";
+      position: absolute;
+      top: 50px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(to right, var(--color-accent), transparent);
+      z-index: -1;
+    }
+
+    .timeline-item {
+      text-align: center;
+    }
+
+    .timeline-item-dot {
+      width: 80px;
+      height: 80px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--color-surface);
+      box-shadow: 0 6px 20px rgba(196, 165, 116, 0.25);
+    }
+
+    .timeline-item-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .timeline-item-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .timeline-item-duration {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      font-weight: 500;
+    }
+
+    .timeline-summary {
+      background: rgba(196, 165, 116, 0.08);
+      border: 2px solid var(--color-accent);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 3rem 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .timeline-summary-item {
+      border-right: 1px solid var(--color-border);
+    }
+
+    .timeline-summary-item:last-child {
+      border-right: none;
+    }
+
+    .timeline-summary-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-summary-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    @media (max-width: 1024px) {
+      .timeline-grid::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .timeline-summary {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin: 2rem 0;
+      }
+
+      .timeline-item-dot {
+        width: 60px;
+        height: 60px;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-item-label {
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-item-title {
+        font-size: 0.95rem;
+      }
+
+      .timeline-item-duration {
+        font-size: 0.9rem;
+      }
+
+      .timeline-summary {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+        padding: 1.5rem;
+      }
+
+      .timeline-summary-item {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 1.5rem;
+      }
+
+      .timeline-summary-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .timeline-summary-label {
+        font-size: 0.7rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-summary-value {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* SPACING UTILITIES */
+    .spacer-sm {
+      height: 1rem;
+    }
+
+    .spacer-md {
+      height: 2rem;
+    }
+
+    .spacer-lg {
+      height: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+
+      section h2 {
+        font-size: 1.75rem;
+      }
+
+      .phase-badge {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+
+      .phase-title {
+        font-size: 1.5rem;
+      }
+
+      .investment-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .investment-item-amount {
+        margin-left: 0;
+        margin-top: 0.75rem;
+      }
+
+      .investment-item,
+      .investment-total {
+        padding: 1.25rem 1.5rem;
+      }
+
+      section {
+        padding: 5rem 1.5rem;
+      }
+    }
+
+    /* APPROACH SECTION */
+    #approach-section {
+      background: linear-gradient(135deg, rgba(26, 58, 58, 0.95) 0%, rgba(45, 90, 90, 0.95) 100%),
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="blueprint" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" opacity="0.1"><rect x="0" y="0" width="50" height="50" stroke="white" fill="none" stroke-width="0.5"/><circle cx="25" cy="25" r="2" fill="white"/></pattern></defs><rect fill="%231a3a3a" width="1200" height="600"/><rect fill="url(%23blueprint)" width="1200" height="600"/></svg>') center/cover;
+      background-attachment: fixed;
+      color: var(--color-surface);
+    }
+
+    #approach-section h2 {
+      color: var(--color-surface);
+    }
+
+    .approach-content {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 3rem;
+      margin: 2rem 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .approach-content p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .approach-content ul {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .approach-content li {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .cta-section {
+      background: var(--color-accent);
+      color: var(--color-primary);
+      padding: 2.5rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .cta-section h3 {
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      color: var(--color-primary);
+      margin-bottom: 0;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 500px;
+      }
+
+      .hero h1 {
+        font-size: 1.875rem;
+      }
+
+      .logo {
+        width: 70px;
+        height: 70px;
+        font-size: 1.25rem;
+      }
+
+      .approach-content {
+        padding: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      section:last-of-type {
+        padding-bottom: 6rem;
+      }
+
+      .phase-badge {
+        width: 55px;
+        height: 55px;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .phase-title {
+        font-size: 1.25rem;
+      }
+
+      .investment-box {
+        padding: 1.75rem 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .section-intro {
+        font-size: 1rem;
+      }
+
+      .section-body {
+        font-size: 0.95rem;
+      }
+
+      ul {
+        margin-left: 1.25rem;
+      }
+
+      .investment-item,
+      .investment-total {
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .investment-total-amount {
+        font-size: 1.25rem;
+      }
+
+      .strategic-objectives,
+      .timeline-note {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo">JD+A</div>
+    <h1>JD+A Custom Builders</h1>
+    <h1 style="color: rgba(255, 255, 255, 0.75); font-size: 1.375rem; font-weight: 400; margin-bottom: 0;">Website Design and Brand Foundation Proposal</h1>
+    <div class="spacer-md"></div>
+    <p>A phased approach to clarifying the JD+A brand, strengthening visibility, and supporting long-term growth.</p>
+  </div>
+</div>
+
+<!-- SECTION 1: OVERVIEW -->
+<section id="overview-section">
+  <div class="container">
+    <h2>Overview</h2>
+
+    <div class="section-body">
+      <p>JD+A Custom Builders creates truly custom homes and spaces with a high level of care, flexibility, and craftsmanship. The goal of this engagement is to ensure the JD+A brand visually represents the same quality and attention to detail as each of their projects.</p>
+
+      <p>Through thoughtful strategic design, we will clarify JD+A's story, process, and client experience in a clear and compelling way. Using the website and supporting materials, potential clients will be able to see themselves in the work and understand the building process before reaching out.</p>
+
+      <p>This work focuses on clearly communicating how JD+A operates, what clients can expect, and what makes the JD+A experience different from other builders.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: PHASE 1 -->
+<section id="phase1-section">
+  <div class="container">
+    <div class="phase-badge">1</div>
+    <span class="phase-label">Phase 1</span>
+    <h2>Brand and Process Clarification</h2>
+
+    <p class="section-intro">The first phase establishes a clear, client-focused articulation of how JD+A works and what differentiates the company from other builders.</p>
+
+    <p class="section-body">This work informs the website structure, future marketing, and how JD+A consistently presents itself across all channels.</p>
+
+    <h3>Scope Includes</h3>
+    <ul>
+      <li>Review of existing website, content, imagery, and messaging</li>
+      <li>Conversations with JD and Sandra to capture company history and approach</li>
+      <li>Definition of JD+A's custom-first approach, emphasizing flexibility and collaboration</li>
+      <li>Development of plain-language descriptions of the building process centered on the client experience</li>
+      <li>Identification of core messages that remain consistent across website and marketing materials</li>
+      <li>Creation of a clear narrative framework that supports current and future content</li>
+    </ul>
+
+    <h3>Deliverables</h3>
+    <ul>
+      <li>Written client-facing process narrative</li>
+      <li>Core messaging and positioning notes</li>
+      <li>Content outline for website and future marketing materials</li>
+    </ul>
+
+    <div class="investment-box">
+      <div class="investment-label">Investment</div>
+      <div class="investment-amount">$2,000</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: PHASE 2 -->
+<section id="phase2-section">
+  <div class="container">
+    <div class="phase-badge">2</div>
+    <span class="phase-label">Phase 2</span>
+    <h2>Website Restructure and Redesign</h2>
+
+    <p class="section-intro">This phase reorganizes and redesigns the website to improve usability, clarity, and engagement. The goal is to make it easier for potential clients to understand JD+A's process, navigate the site, and see themselves in the work.</p>
+
+    <p class="section-body">The site will prioritize the client journey while still showcasing craftsmanship, project details, and the collaborative building experience.</p>
+
+    <h3>Scope Includes</h3>
+    <ul>
+      <li>Audit of current site structure, content, and imagery</li>
+      <li>Redefinition of page hierarchy, navigation, and user flow</li>
+      <li>Redesign of the homepage and key interior pages with emphasis on storytelling and photography</li>
+      <li>Content planning and layout design that can complement platforms such as Houzz</li>
+      <li>Development of content placement and microcopy to guide users</li>
+      <li>Preparation for Sanity CMS implementation as a headless solution</li>
+    </ul>
+
+    <h3>Deliverables</h3>
+    <ul>
+      <li>Page structure and content mapping documentation</li>
+      <li>Homepage and key interior page design and content strategy</li>
+      <li>Content placement guidance and microcopy</li>
+      <li>Headless CMS implementation using Sanity for flexible content management</li>
+    </ul>
+
+    <div class="investment-box">
+      <div class="investment-label">Investment</div>
+      <div class="investment-amount">$4,500</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: PHASE 3 -->
+<section id="phase3-section">
+  <div class="container">
+    <div class="phase-badge">3</div>
+    <span class="phase-label">Phase 3</span>
+    <h2>Media Strategy & Authority Positioning</h2>
+
+    <p class="section-intro">With the brand foundation and website clarified, the next step is shaping how JD+A is perceived in the broader market.</p>
+
+    <div class="section-body">
+      <p>For a custom builder, growth does not come from volume marketing. It comes from credibility, referrals, and trusted visibility. This phase defines how JD+A builds long-term authority — not just attention.</p>
+
+      <p>Rather than focusing narrowly on social media posts, this work creates a structured media strategy that increases recognition, strengthens third-party validation, and keeps JD+A top of mind among past and future clients.</p>
+    </div>
+
+    <div class="strategic-objectives">
+      <h4>Strategic Objectives</h4>
+      <ul>
+        <li>Elevate JD+A's perceived authority in the custom home market</li>
+        <li>Increase visibility in places high-end homeowners seek inspiration</li>
+        <li>Create repeatable systems for project promotion and submission</li>
+        <li>Support referral momentum and reputation growth</li>
+        <li>Maintain consistent visibility without overextending internal resources</li>
+      </ul>
+    </div>
+
+    <h3>Core Components</h3>
+
+    <div class="section-body">
+      <p><strong>Earned Media & Editorial Strategy:</strong> Target regional and national design publications with curated project narratives and photography standards to secure editorial features.</p>
+
+      <p><strong>Reputation & Referral Amplification:</strong> Develop testimonial collection frameworks, case study formatting, and review management systems to strengthen referral momentum.</p>
+
+      <p><strong>Social Media as Strategic Support:</strong> Establish content pillars, voice guidelines, and posting cadence that integrate with the website and amplify project visibility.</p>
+    </div>
+
+    <h3>Deliverables</h3>
+    <ul>
+      <li>Comprehensive Media Strategy document</li>
+      <li>Target publication and exposure list</li>
+      <li>Project submission narrative template</li>
+      <li>Testimonial and review framework</li>
+      <li>Content pillar and voice guidelines</li>
+      <li>60-day visibility roadmap</li>
+    </ul>
+
+    <div class="investment-box">
+      <div class="investment-label">Investment</div>
+      <div class="investment-amount">$1,500–$2,500</div>
+      <p style="font-size: 0.875rem; color: #888; margin-top: 0.75rem;">(Final investment determined by level of earned media targeting and implementation depth.)</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: TOTAL INVESTMENT -->
+<section id="investment-section">
+  <div class="container">
+    <h2>Investment</h2>
+
+    <div class="investment-list">
+      <div class="investment-item">
+        <div class="investment-item-label">Brand and Process Clarification</div>
+        <div class="investment-item-amount">$2,000</div>
+      </div>
+      <div class="investment-item">
+        <div class="investment-item-label">Website Restructure and Redesign</div>
+        <div class="investment-item-amount">$4,500</div>
+      </div>
+      <div class="investment-item">
+        <div class="investment-item-label">Media Strategy</div>
+        <div class="investment-item-amount">$1,500–$2,500</div>
+      </div>
+
+      <div class="investment-total">
+        <div class="investment-total-label">Estimated Total Investment Range</div>
+        <div class="investment-total-amount">$8,000–$9,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: TIMELINE -->
+<section id="timeline-section">
+  <div class="container">
+    <h2>Timeline</h2>
+
+    <div class="timeline-container">
+      <div class="timeline-grid">
+        <div class="timeline-item">
+          <div class="timeline-item-dot">1</div>
+          <span class="timeline-item-label">Phase 1</span>
+          <div class="timeline-item-title">Brand & Process</div>
+          <div class="timeline-item-duration">Weeks 1–2</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-dot">2</div>
+          <span class="timeline-item-label">Phase 2</span>
+          <div class="timeline-item-title">Website Redesign</div>
+          <div class="timeline-item-duration">Weeks 2–4</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-dot">3</div>
+          <span class="timeline-item-label">Phase 3</span>
+          <div class="timeline-item-title">Media Strategy</div>
+          <div class="timeline-item-duration">Weeks 5–6</div>
+        </div>
+      </div>
+
+      <div class="timeline-summary">
+        <div class="timeline-summary-item">
+          <div class="timeline-summary-label">Kickoff</div>
+          <div class="timeline-summary-value">March 10</div>
+        </div>
+        <div class="timeline-summary-item">
+          <div class="timeline-summary-label">Duration</div>
+          <div class="timeline-summary-value">4–6 Weeks</div>
+        </div>
+        <div class="timeline-summary-item">
+          <div class="timeline-summary-label">Completion</div>
+          <div class="timeline-summary-value">Late April</div>
+        </div>
+      </div>
+
+      <div class="timeline-note">
+        <p>Work is sequenced so early strategic decisions inform later phases, reducing rework and ensuring efficiency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: PHASE-BASED APPROACH -->
+<section id="approach-section">
+  <div class="container">
+    <h2>Building for Future Growth</h2>
+
+    <div class="approach-content">
+      <p>This engagement is intentionally structured so foundational work supports future growth efforts such as:</p>
+      <ul>
+        <li>Professional photography direction</li>
+        <li>Ongoing content creation</li>
+        <li>Search visibility strategy</li>
+        <li>Paid advertising campaigns</li>
+        <li>Expanded marketing initiatives</li>
+      </ul>
+
+      <p>By building clarity first, every future marketing effort becomes more efficient, consistent, and effective.</p>
+    </div>
+
+    <div class="cta-section">
+      <h3>Ready to Transform JD+A's Brand?</h3>
+      <p>Let's start building a foundation that positions JD+A as the premier custom builder in the market. Contact us to discuss the proposal and kickoff timeline.</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
